@@ -21,7 +21,7 @@
     --text-primary: #1f2937;
     --accent: #2563eb;
     --card-bg: #f3f4f6;
-    --border-color: #d1d5db;
+    --border-color: #767676;
 
     --space-1: 0.25rem;
     --space-2: 0.5rem;
@@ -41,7 +41,7 @@
         --text-primary: #f9fafb;
         --accent: #93c5fd;
         --card-bg: #1f2937;
-        --border-color: #4b5563;
+        --border-color: #6b7280;
     }
 }
 
