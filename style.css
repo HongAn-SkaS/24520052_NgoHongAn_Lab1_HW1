@@ -80,3 +80,114 @@ video {
     max-width: 100%;
     height: auto;
 }
+
+/* ========================================
+   5. Base Layout
+   ======================================== */
+
+body {
+    min-width: 0;
+}
+
+header,
+nav,
+main,
+footer {
+    padding: var(--space-3);
+}
+
+header,
+main,
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* ========================================
+   6. Navigation — Flexbox
+   ======================================== */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    border-block: 1px solid var(--border-color);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    list-style: none;
+}
+
+nav a {
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   7. Responsive Project Grid
+   ======================================== */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    min-width: 0;
+}
+
+.project-card {
+    min-width: 0;
+    padding: var(--space-3);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   8. Keyboard Accessibility
+   ======================================== */
+
+.skip-link {
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-2);
+    z-index: 10;
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* ========================================
+   9. Small Screen Adjustments
+   ======================================== */
+
+@media (max-width: 375px) {
+    header,
+    nav,
+    main,
+    footer {
+        padding: var(--space-2);
+    }
+
+    .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
