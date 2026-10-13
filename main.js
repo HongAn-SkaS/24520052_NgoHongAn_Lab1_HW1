@@ -1,7 +1,13 @@
 const themeButton = document.querySelector('#theme-btn');
 const body = document.body;
 
-const savedTheme = localStorage.getItem('theme');
+let savedTheme = null;
+
+try {
+    savedTheme = localStorage.getItem('theme');
+} catch (error) {
+    // Continue with the default theme if storage is unavailable.
+}
 
 if (savedTheme === 'dark' || savedTheme === 'light') {
     body.classList.toggle('dark-theme', savedTheme === 'dark');
@@ -18,6 +24,10 @@ if (themeButton) {
 
         themeButton.setAttribute('aria-pressed', String(isDark));
 
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        try {
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        } catch (error) {
+            // Theme still changes for the current page.
+        }
     });
 }
